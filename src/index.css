@@ -2,39 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* IA Brasil - Design System Otimizado para Conversão */
 
 @layer base {
   :root {
+    /* Core Colors - Optimized for conversion */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 210 11% 15%;
+    
+    /* Trust & Authority Colors */
+    --primary: 210 100% 50%; /* Conversion Blue */
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 45%;
+    
+    /* Action & CTA Colors */
+    --cta: 25 95% 53%; /* High-converting orange */
+    --cta-foreground: 0 0% 100%;
+    --cta-hover: 25 95% 48%;
+    
+    /* Content Hierarchy */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 210 11% 15%;
+    
+    --muted: 210 40% 97%;
+    --muted-foreground: 215 16% 47%;
+    
+    --accent: 210 100% 95%;
+    --accent-foreground: 210 100% 40%;
+    
+    /* Interactive Elements */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --card-foreground: 210 11% 15%;
+    --card-hover: 210 40% 98%;
+    
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
+    
+    /* Success & Trust Indicators */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
     --radius: 0.5rem;
 
@@ -100,6 +113,83 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Typography for SEO and readability */
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+  
+  h2 {
+    @apply text-2xl md:text-3xl font-semibold leading-snug mt-8 mb-4;
+  }
+  
+  h3 {
+    @apply text-xl md:text-2xl font-medium leading-snug mt-6 mb-3;
+  }
+  
+  p {
+    @apply leading-relaxed mb-4;
+  }
+  
+  /* CTA Button styles for maximum conversion */
+  .cta-button {
+    @apply bg-cta hover:bg-cta-hover text-cta-foreground font-semibold px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  }
+  
+  .cta-button-secondary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg;
+  }
+}
+
+@layer components {
+  /* Article content styling */
+  .article-content {
+    @apply max-w-4xl mx-auto px-6 py-8;
+  }
+  
+  .article-content h1 {
+    @apply text-foreground mb-6;
+  }
+  
+  .article-content h2 {
+    @apply text-foreground border-l-4 border-primary pl-4;
+  }
+  
+  .article-content h3 {
+    @apply text-accent-foreground;
+  }
+  
+  .article-content p {
+    @apply text-foreground text-lg leading-relaxed;
+  }
+  
+  .article-content ul, .article-content ol {
+    @apply ml-6 mb-4 space-y-2;
+  }
+  
+  .article-content li {
+    @apply text-foreground leading-relaxed;
+  }
+  
+  .article-content strong {
+    @apply font-semibold text-primary;
+  }
+  
+  /* FAQ Section */
+  .faq-section {
+    @apply bg-accent rounded-lg p-6 mt-8;
+  }
+  
+  /* Card hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  /* Trust indicators */
+  .trust-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-success text-success-foreground;
   }
 }
